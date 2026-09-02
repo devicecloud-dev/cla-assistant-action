@@ -4,7 +4,7 @@ The CLA gate for `devicecloud-dev/dcd-cli`. Contributors sign by commenting a
 phrase on their PR; signatures are stored as JSON on a branch of the *consuming*
 repo, so no third-party service holds the data.
 
-Private fork of [`contributor-assistant/github-action`](https://github.com/contributor-assistant/github-action)
+Fork of [`contributor-assistant/github-action`](https://github.com/contributor-assistant/github-action)
 (Apache-2.0, see `LICENSE`), which its author **archived read-only on 2026-03-23**.
 We now maintain this.
 
@@ -38,10 +38,12 @@ screenshots. Five of six fired and failed on the first push here. `src/`,
 - uses: devicecloud-dev/cla-assistant-action@v2.6.2
 ```
 
-This repo is **private**, which needs Settings → Actions → General → Access →
-"Accessible from repositories in the devicecloud-dev organization" (already set).
-It resolves for outside-contributor PRs because the consuming workflow is
-`pull_request_target`, so it runs in the base repo's context rather than the fork's.
+This repo is **public**, and has to be: `dcd-cli` is public, and a public repo's
+workflow cannot resolve an action from a private one. It was created private and
+failed with `Unable to resolve action ... not found` even with the org access
+policy set to "Accessible from repositories in the devicecloud-dev organization".
+Private buys nothing here anyway — the action's code has to be readable by a
+public repo's runs either way, and all of it is Apache-2.0 upstream plus one line.
 
 ## Versioning
 
